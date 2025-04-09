@@ -65,6 +65,7 @@ Desktop.ini
 # Ignore contents of these folders, but keep the folders themselves
 data/dns/*
 !data/dns/.gitkeep
-
+data/processed/*
+!data/processed/.gitkeep
 data/openfoam/*
 !data/openfoam/.gitkeep
