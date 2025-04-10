@@ -15,7 +15,7 @@ The project uses turbulence statistics data from:
 **van der A, D.A., Scandura, P., O'Donoghue, T. (2018).**  
 *Turbulence statistics in smooth wall oscillatory boundary layer flow*,  
 **Journal of Fluid Mechanics**, *849*, 192–230.  
-[DOI Link](https://doi.org/10.1017/jfm.2018.466)
+[DOI Link](https://doi.org/10.1017/jfm.2018.403)
 
 - Dataset available on [Zenodo](https://zenodo.org/records/1095116)
 
