@@ -11,7 +11,6 @@ import torch
 import numpy as np
 
 # Add the project root to the path for imports
-# This allows importing from src regardless of where the script is run from
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(project_root)
 
@@ -77,18 +76,18 @@ criterion = SafeRelativeMSELoss()
 def main():
     """Main training function."""
     # Set the seed for reproducibility
-    set_seed(42)  # You can choose any integer value
+    set_seed(42)
     
     # Get the device
     device = get_device()
     
-    # TODO: Add your training code here
+    
     # 1. Load data
     X_stacked_846, Y_stacked_846, TB_stacked_846,_, gradU_stacked_846,y_values_846 = read_dataset(846, sequence_length,stride,invariants=invariants,target=target,filter=5,gradU_column= 'gradU_0_1')
     X_stacked_1155, Y_stacked_1155, TB_stacked_1155,_, gradU_stacked_1155,y_values_1155 = read_dataset(1155,sequence_length,stride,invariants=invariants,target=target,filter=5,gradU_column= 'gradU_0_1')
     X_stacked_1475, Y_stacked_1475, TB_stacked_1475,_, gradU_stacked_1475,y_values_1475 = read_dataset(1475,sequence_length,stride,invariants=invariants,target=target,filter=5,gradU_column= 'gradU_0_1')
 
-    # Exclude the first spatial point (index 0) from X, Y, and TB
+    
     X_training = torch.cat([X_stacked_846, X_stacked_1475])[:,:,:,:].to(device)
     Y_training = torch.cat([Y_stacked_846, Y_stacked_1475])[:,:,:].to(device)
     TB_training = torch.cat([TB_stacked_846, TB_stacked_1475])[:,:,:,:].to(device)
@@ -167,7 +166,7 @@ def main():
         model.eval()
         val_losses = []
         with torch.no_grad():
-            # For validation, we can process in slightly larger batches
+            
             for i in range(0, len(val_pairs), batch_size*2):
                 batch_val_pairs = val_pairs[i:i+batch_size*2]
                 
