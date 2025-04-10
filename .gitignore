@@ -69,3 +69,4 @@ data/processed/*
 !data/processed/.gitkeep
 data/openfoam/*
 !data/openfoam/.gitkeep
+notebooks/train_model.ipynb
